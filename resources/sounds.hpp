@@ -2,7 +2,7 @@
 
 __forceinline void setup_sounds()
 {
-	// TODO: simv0l - change sounds directory to appdata/Immorality.
+	// TODO: simv0l - change sounds directory to appdata/Xtraylex.
 	CreateDirectory("csgo\\sound", nullptr);
 	FILE* file = nullptr;
 

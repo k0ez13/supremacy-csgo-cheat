@@ -1401,7 +1401,7 @@ void c_lua::refresh_scripts()
 
 	if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
 	{
-		folder = std::string(path) + crypt_str("\\Immorality\\Scripts\\");
+		folder = std::string(path) + crypt_str("\\Xtraylex\\Scripts\\");
 		CreateDirectory(folder.c_str(), NULL);
 
 		auto i = 0;

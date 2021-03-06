@@ -202,12 +202,12 @@ void eventlogs::addnew(std::string text, Color color, bool full_display)
 
 #if RELEASE
 #if BETA
-        m_cvar()->ConsoleColorPrintf(Color::Pink, crypt_str("[ Immorality ] ")); //-V807
+        m_cvar()->ConsoleColorPrintf(Color::Pink, crypt_str("[ Xtraylex ] ")); //-V807
 #else
-        m_cvar()->ConsoleColorPrintf(Color::Pink, crypt_str("[ Immorality ] "));
+        m_cvar()->ConsoleColorPrintf(Color::Pink, crypt_str("[ Xtraylex ] "));
 #endif
 #else
-        m_cvar()->ConsoleColorPrintf(Color::Pink, crypt_str("[ Immorality ] ")); //-V807
+        m_cvar()->ConsoleColorPrintf(Color::Pink, crypt_str("[ Xtraylex ] ")); //-V807
 #endif
 
         m_cvar()->ConsoleColorPrintf(g_cfg.misc.log_color, text.c_str());
@@ -223,14 +223,14 @@ void eventlogs::addnew(std::string text, Color color, bool full_display)
 
 #if RELEASE
 #if BETA
-        auto log = crypt_str("[ \x0CAImmorality \x01] ") + text;
+        auto log = crypt_str("[ \x0CAXtraylex \x01] ") + text;
         chat->chat_print(log.c_str());
 #else
-        auto log = crypt_str("[ \x0CImmorality \x01] ") + text;
+        auto log = crypt_str("[ \x0CXtraylex \x01] ") + text;
         chat->chat_print(log.c_str());
 #endif
 #else
-        auto log = crypt_str("[ \x0CImmorality \x01] ") + text;
+        auto log = crypt_str("[ \x0CXtraylex \x01] ") + text;
         chat->chat_print(log.c_str());
 #endif
     }
@@ -432,7 +432,7 @@ void eventlogs::add(std::string text, bool full_display)
 	{
 		last_log = true;
 
-		m_cvar()->ConsoleColorPrintf(Color(89,119,239,255), crypt_str("[Immorality] "));
+		m_cvar()->ConsoleColorPrintf(Color(89,119,239,255), crypt_str("[Xtraylex] "));
 		m_cvar()->ConsoleColorPrintf(Color::LightBlue, text.c_str());
 		m_cvar()->ConsolePrintf(crypt_str("\n"));
 	}
@@ -444,7 +444,7 @@ void eventlogs::add(std::string text, bool full_display)
 		if (!chat)
 			chat = util::FindHudElement <CHudChat> (crypt_str("CHudChat"));
 
-		auto log = crypt_str("[ \x0CImmorality \x01] ") + text;
+		auto log = crypt_str("[ \x0CXtraylex \x01] ") + text;
 		chat->chat_print(log.c_str());
 	}
 }*/

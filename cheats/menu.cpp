@@ -501,7 +501,7 @@ std::string get_config_dir()
 	static TCHAR path[MAX_PATH];
 
 	if (SUCCEEDED(SHGetFolderPath(NULL, 0x001a, NULL, NULL, path)))
-		folder = std::string(path) + crypt_str("\\Immorality\\Configs\\");
+		folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
 
 	CreateDirectory(folder.c_str(), NULL);
 	return folder;
@@ -904,7 +904,7 @@ void lua_edit(std::string window_name)
 		static TCHAR path[MAX_PATH];
 
 		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
-			file_path = std::string(path) + crypt_str("\\Immorality\\Scripts\\");
+			file_path = std::string(path) + crypt_str("\\Xtraylex\\Scripts\\");
 
 		CreateDirectory(file_path.c_str(), NULL);
 		file_path += window_name + crypt_str(".lua");
@@ -3849,7 +3849,7 @@ void c_menu::render2(bool is_open) {
 								ImGui::Checkbox(crypt_str("Unlock inventory access"), &g_cfg.misc.inventory_access);
 								ImGui::Checkbox(crypt_str("Gravity ragdolls"), &g_cfg.misc.ragdolls);
 								ImGui::Checkbox(crypt_str("Preserve killfeed"), &g_cfg.esp.preserve_killfeed);
-								ImGui::Checkbox(crypt_str("Aspect ratio"), &g_cfg.misc.aspect_ratio);
+								//ImGui::Checkbox(crypt_str("Aspect ratio"), &g_cfg.misc.aspect_ratio);
 								ImGui::Checkbox(crypt_str("Auto Zeus"), &g_cfg.ragebot.zeus_bot);
 								ImGui::Checkbox(crypt_str("Auto Knife"), &g_cfg.ragebot.knife_bot);
 								ImGui::Checkbox(crypt_str("Remove advertisement"), &g_cfg.misc.block_adv);
@@ -3879,11 +3879,11 @@ void c_menu::render2(bool is_open) {
 								ImGui::Separator();
 
 
-								if (g_cfg.misc.aspect_ratio)
-								{
-									padding(0, -5);
-									ImGui::SliderFloat(crypt_str("Amount"), &g_cfg.misc.aspect_ratio_amount, 1.0f, 2.0f);
-								}
+								//if (g_cfg.misc.aspect_ratio)
+								//{
+								//	padding(0, -5);
+								//	ImGui::SliderFloat(crypt_str("Amount"), &g_cfg.misc.aspect_ratio_amount, 1.0f, 2.0f);
+								//}
 
 								ImGui::Checkbox(crypt_str("Fake-lag"), &g_cfg.antiaim.fakelag);
 								if (g_cfg.antiaim.fakelag)
@@ -4472,7 +4472,7 @@ void c_menu::render2(bool is_open) {
 									static TCHAR path[MAX_PATH];
 
 									if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
-										folder = std::string(path) + crypt_str("\\Immorality\\Configs\\");
+										folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
 
 									CreateDirectory(folder.c_str(), NULL);
 								};
@@ -4644,7 +4644,7 @@ void c_menu::render2(bool is_open) {
 										static TCHAR path[MAX_PATH];
 
 										if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
-											folder = std::string(path) + crypt_str("\\Immorality\\Scripts\\");
+											folder = std::string(path) + crypt_str("\\Xtraylex\\Scripts\\");
 
 										CreateDirectory(folder.c_str(), NULL);
 									};

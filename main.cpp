@@ -193,12 +193,12 @@ DWORD WINAPI main(PVOID base)
 	std::string scripts_folder;
 	std::string sounds_folder;
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path);
-	main_folder = std::string(path) + crypt_str("\\Immorality\\\\");
-	configs_folder = std::string(path) + crypt_str("\\Immorality\\\\Configs\\");
-	fonts_folder = std::string(path) + crypt_str("\\Immorality\\\\Fonts\\");
-	scripts_folder = std::string(path) + crypt_str("\\Immorality\\\\Scripts\\");
-	sounds_folder = std::string(path) + crypt_str("\\Immorality\\\\Sounds\\");
-	auto inventory_folder = std::string(path) + crypt_str("\\Immorality\\\\Inventory\\");
+	main_folder = std::string(path) + crypt_str("\\Xtraylex\\\\");
+	configs_folder = std::string(path) + crypt_str("\\Xtraylex\\\\Configs\\");
+	fonts_folder = std::string(path) + crypt_str("\\Xtraylex\\\\Fonts\\");
+	scripts_folder = std::string(path) + crypt_str("\\Xtraylex\\\\Scripts\\");
+	sounds_folder = std::string(path) + crypt_str("\\Xtraylex\\\\Sounds\\");
+	auto inventory_folder = std::string(path) + crypt_str("\\Xtraylex\\\\Inventory\\");
 
 	
 	CreateDirectory(main_folder.c_str(), NULL);

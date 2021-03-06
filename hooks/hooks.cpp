@@ -231,6 +231,8 @@ namespace hooks
 		static auto processinterpolatedlist = (DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(19).c_str()));
 		hooks::original_processinterpolatedlist = (DWORD)DetourFunction((byte*)processinterpolatedlist, (byte*)hooks::processinterpolatedlist); //-V206
 
+		
+
 		while (!(INIT::Window = IFH(FindWindow)(crypt_str("Valve001"), nullptr)))
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
