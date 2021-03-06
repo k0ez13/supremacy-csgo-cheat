@@ -2,7 +2,7 @@
 
 __forceinline void setup_sounds()
 {
-	// TODO: simv0l - change sounds directory to appdata/Xtraylex.
+	// TODO: simv0l - change sounds directory to appdata/supremacy.
 	CreateDirectory("csgo\\sound", nullptr);
 	FILE* file = nullptr;
 

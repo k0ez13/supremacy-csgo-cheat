@@ -16,7 +16,7 @@ void misc::watermark()
 	auto width = 0, height = 0;
 	m_engine()->GetScreenSize(width, height);
 
-	auto watermark = crypt_str("Xtraylex | ") + g_ctx.username /*+ crypt_str(" | ")*/ + g_ctx.globals.time;
+	auto watermark = crypt_str("supremacy | ") + g_ctx.username /*+ crypt_str(" | ")*/ + g_ctx.globals.time;
 
 	if (m_engine()->IsInGame())
 	{
@@ -32,7 +32,7 @@ void misc::watermark()
 				server = crypt_str("valve server");
 
 			auto tickrate = std::to_string((int)(1.0f / m_globals()->m_intervalpertick));
-			watermark = crypt_str("Xtraylex | ") + g_ctx.username /*+ crypt_str(" | ")*/ + server + crypt_str(" | ") + std::to_string(g_ctx.globals.ping) + crypt_str(" ms | ") + tickrate + crypt_str(" tick | ") + g_ctx.globals.time;
+			watermark = crypt_str("supremacy | ") + g_ctx.username /*+ crypt_str(" | ")*/ + server + crypt_str(" | ") + std::to_string(g_ctx.globals.ping) + crypt_str(" ms | ") + tickrate + crypt_str(" tick | ") + g_ctx.globals.time;
 		}
 	}
 

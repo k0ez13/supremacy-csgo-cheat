@@ -43,7 +43,7 @@ void spammers::clan_tag()
 			switch (main_time)
 			{
 			case 0:
-				tag = crypt_str("Xtraylex"); //-V1037
+				tag = crypt_str("supremacy"); //-V1037
 				break;
 			case 1:
 				tag = crypt_str("mmorality");
@@ -106,10 +106,10 @@ void spammers::clan_tag()
 				tag = crypt_str("mmorality");
 				break;
 			case 21:
-				tag = crypt_str("Xtraylex");
+				tag = crypt_str("supremacy");
 				break;
 			case 22:
-				tag = crypt_str("Xtraylex");
+				tag = crypt_str("supremacy");
 				break;
 		
 			}

@@ -11,7 +11,7 @@ IMaterial* CreateMaterial(bool lit, const std::string& material_data)
 	static auto created = 0;
 	std::string type = lit ? crypt_str("VertexLitGeneric") : crypt_str("UnlitGeneric");
 
-	auto matname = crypt_str("Xtraylex_") + std::to_string(created);
+	auto matname = crypt_str("supremacy_") + std::to_string(created);
 	++created;
 
 	auto keyValues = new KeyValues(matname.c_str());

@@ -45,15 +45,15 @@ void __fastcall hooks::hooked_sceneend::hook(void* ecx, void* edx)
 
 		static IMaterial* chams_materials[] =
 		{
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_chams"), nullptr),
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_metallic"), nullptr),
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_flat"), nullptr),
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_chams"), nullptr),
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_metallic"), nullptr),
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_flat"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/dogtags/dogtags_outline"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/trophy_majors/crystal_clear"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/cologne_prediction/cologne_prediction_glass"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("dev/glow_armsrace.vmt"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/wildfire_gold/wildfire_gold_detail"), nullptr),
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_glow"), nullptr)
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_glow"), nullptr)
 		};
 
 		auto material = chams_materials[g_cfg.player.type[type].ragdoll_chams_material];
@@ -125,15 +125,15 @@ void __fastcall hooks::hooked_sceneend(void* ecx, void* edx)
 
 		static IMaterial* chams_materials[] =
 		{
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_chams"), nullptr),
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_metallic"), nullptr),
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_flat"), nullptr),
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_chams"), nullptr),
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_metallic"), nullptr),
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_flat"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/dogtags/dogtags_outline"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/trophy_majors/crystal_clear"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/cologne_prediction/cologne_prediction_glass"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("dev/glow_armsrace.vmt"), nullptr),
 			m_materialsystem()->FindMaterial(crypt_str("models/inventory_items/wildfire_gold/wildfire_gold_detail"), nullptr),
-			m_materialsystem()->FindMaterial(crypt_str("Xtraylex_glow"), nullptr)
+			m_materialsystem()->FindMaterial(crypt_str("supremacy_glow"), nullptr)
 		};
 
 		auto material = chams_materials[g_cfg.player.type[type].ragdoll_chams_material];

@@ -501,7 +501,7 @@ std::string get_config_dir()
 	static TCHAR path[MAX_PATH];
 
 	if (SUCCEEDED(SHGetFolderPath(NULL, 0x001a, NULL, NULL, path)))
-		folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
+		folder = std::string(path) + crypt_str("\\supremacy\\Configs\\");
 
 	CreateDirectory(folder.c_str(), NULL);
 	return folder;
@@ -904,7 +904,7 @@ void lua_edit(std::string window_name)
 		static TCHAR path[MAX_PATH];
 
 		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
-			file_path = std::string(path) + crypt_str("\\Xtraylex\\Scripts\\");
+			file_path = std::string(path) + crypt_str("\\supremacy\\Scripts\\");
 
 		CreateDirectory(file_path.c_str(), NULL);
 		file_path += window_name + crypt_str(".lua");
@@ -4472,7 +4472,7 @@ void c_menu::render2(bool is_open) {
 									static TCHAR path[MAX_PATH];
 
 									if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
-										folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
+										folder = std::string(path) + crypt_str("\\supremacy\\Configs\\");
 
 									CreateDirectory(folder.c_str(), NULL);
 								};
@@ -4644,7 +4644,7 @@ void c_menu::render2(bool is_open) {
 										static TCHAR path[MAX_PATH];
 
 										if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
-											folder = std::string(path) + crypt_str("\\Xtraylex\\Scripts\\");
+											folder = std::string(path) + crypt_str("\\supremacy\\Scripts\\");
 
 										CreateDirectory(folder.c_str(), NULL);
 									};

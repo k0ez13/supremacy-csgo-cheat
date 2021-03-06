@@ -451,8 +451,8 @@ void C_ConfigManager::save(std::string config)
 
 		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
 		{
-			folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
-			file = std::string(path) + crypt_str("\\Xtraylex\\Configs\\") + config;
+			folder = std::string(path) + crypt_str("\\supremacy\\Configs\\");
+			file = std::string(path) + crypt_str("\\supremacy\\Configs\\") + config;
 		}
 	};
 
@@ -596,7 +596,7 @@ void C_ConfigManager::save(std::string config)
 	static TCHAR path[MAX_PATH];
 	std::string zfolder;
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path);
-	zfolder = std::string(path) + ("\\Xtraylex\\");
+	zfolder = std::string(path) + ("\\supremacy\\");
 	zfolder += ("\\Inventory\\");
 	auto zfile = zfolder + "inventory.data";
 
@@ -695,8 +695,8 @@ void C_ConfigManager::load(std::string config, bool load_script_items)
 
 		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
 		{
-			folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
-			file = std::string(path) + crypt_str("\\Xtraylex\\Configs\\") + config;
+			folder = std::string(path) + crypt_str("\\supremacy\\Configs\\");
+			file = std::string(path) + crypt_str("\\supremacy\\Configs\\") + config;
 		}
 	};
 
@@ -873,7 +873,7 @@ void C_ConfigManager::load(std::string config, bool load_script_items)
 	static TCHAR path[MAX_PATH];
 	std::string zfolder;
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path);
-	zfolder = std::string(path) + ("\\Xtraylex\\");
+	zfolder = std::string(path) + ("\\supremacy\\");
 	zfolder += ("\\Inventory\\");
 	auto zfile = zfolder + "inventory.data";
 	g_InventorySkins.clear();
@@ -982,8 +982,8 @@ void C_ConfigManager::remove(std::string config)
 
 		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
 		{
-			folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
-			file = std::string(path) + crypt_str("\\Xtraylex\\Configs\\") + config;
+			folder = std::string(path) + crypt_str("\\supremacy\\Configs\\");
+			file = std::string(path) + crypt_str("\\supremacy\\Configs\\") + config;
 		}
 	};
 
@@ -1002,7 +1002,7 @@ void C_ConfigManager::config_files()
 		static TCHAR path[MAX_PATH];
 
 		if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
-			folder = std::string(path) + crypt_str("\\Xtraylex\\Configs\\");
+			folder = std::string(path) + crypt_str("\\supremacy\\Configs\\");
 	};
 
 	get_dir();
