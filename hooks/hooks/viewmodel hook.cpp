@@ -9,7 +9,7 @@ void Skins::skinfix(int itemfix)
 }
 
 
-void shonax_hooks::Viewmodel(recvProxyData& pData, void* pStruct, void* pOut)
+/*void shonax_hooks::Viewmodel(recvProxyData& pData, void* pStruct, void* pOut)
 {
 
 
@@ -80,5 +80,5 @@ void shonax_hooks::Viewmodel(recvProxyData& pData, void* pStruct, void* pOut)
 		viewmodel_hook(pData, pStruct, pOut);
 
 }
-
+*/
 

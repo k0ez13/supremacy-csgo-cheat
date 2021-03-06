@@ -3,7 +3,7 @@
 #include "../../inventory/items.h"
 
 
-enum ESequence
+/*enum ESequence
 {
 	SEQUENCE_DEFAULT_DRAW = 0,
 	SEQUENCE_DEFAULT_IDLE1 = 1,
@@ -176,3 +176,4 @@ void shonax_hooks::RecvProxy(recvProxyData& pData, void* entity, void* output)
 	if (sequence_hook)
 		sequence_hook(pData, entity, output);
 }
+*/

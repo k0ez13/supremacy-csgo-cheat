@@ -4,7 +4,7 @@
 #include "vfunc_hook.hpp"
 #include "hooks.hpp"
 
-vmthook::vmthook() 
+/*vmthook::vmthook() 
 {
 	memset(this, NULL, sizeof(vmthook));
 }
@@ -100,3 +100,4 @@ DWORD vmthook::get_vt_count(PDWORD pdwVMT)
 
 	return dwIndex;
 }
+*/

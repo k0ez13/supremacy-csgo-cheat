@@ -3,7 +3,15 @@
 
 #include "..\hooks.hpp"
 
-using LockCursor_t = void(__thiscall*)(void*);
+void __stdcall hooks::hooked_lockcursor::hook()
+{
+	if (!menu_open)
+		return o_cursor(m_surface());
+
+	m_surface()->UnlockCursor();
+}
+
+/*using LockCursor_t = void(__thiscall*)(void*);
 
 void __stdcall hooks::hooked_lockcursor() 
 {
@@ -13,4 +21,5 @@ void __stdcall hooks::hooked_lockcursor()
 		return original_fn(m_surface());
 
 	m_surface()->UnlockCursor();
-}
+}*/
+

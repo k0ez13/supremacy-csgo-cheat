@@ -3859,7 +3859,7 @@ void c_menu::render2(bool is_open) {
 
 
 
-								const char* channels_radio[] = { "None" , "Greatest Hits", "Dance Hits", "German Rap", "Chill", "Top 100", "Best German-Rap", "Hip Hop" };
+								/*const char* channels_radio[] = { "None" , "Greatest Hits", "Dance Hits", "German Rap", "Chill", "Top 100", "Best German-Rap", "Hip Hop" };
 
 
 
@@ -3875,7 +3875,7 @@ void c_menu::render2(bool is_open) {
 								ImGui::Text("%s", BASS::bass_metadata);
 
 
-
+								*/
 								ImGui::Separator();
 
 

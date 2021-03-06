@@ -2,7 +2,7 @@
 #include "../../protobuffs/Protobuffs.h"
 #include "../../mutiny merge/merged_hooks.h"
 
-unsigned long __fastcall shonax_hooks::GCRetrieveMessageHook(void* ecx, void*, uint32_t* punMsgType, void* pubDest, uint32_t cubDest, uint32_t* pcubMsgSize)
+/*unsigned long __fastcall shonax_hooks::GCRetrieveMessageHook(void* ecx, void*, uint32_t* punMsgType, void* pubDest, uint32_t cubDest, uint32_t* pcubMsgSize)
 {
 	//static auto oGCRetrieveMessage = gc.get_original<GCRetrieveMessage>(2);
 	auto status = oGCRetrieveMessage(ecx, punMsgType, pubDest, cubDest, pcubMsgSize);
@@ -30,3 +30,4 @@ unsigned long __fastcall shonax_hooks::GCSendMessageHook(void* ecx, void*, uint3
 		return k_EGCResultOK;
 	return oGCSendMessage(ecx, unMsgType, const_cast<void*>(pubData), cubData);
 }
+*/

@@ -21,7 +21,39 @@ struct RenderableInfo_t
 	int pad;
 };
 
-using ListLeavesInBox_t = int(__thiscall*)(void*, const Vector&, const Vector&, unsigned short*, int);
+int __fastcall hooks::hooked_listleavesinbox::hook(void* ecx, void* edx, Vector& mins, Vector& maxs, unsigned short* list, int list_max)
+{
+	g_ctx.local((player_t*)m_entitylist()->GetClientEntity(m_engine()->GetLocalPlayer()), true);
+
+	if (!g_ctx.local())
+		return o_bsp(ecx, mins, maxs, list, list_max);
+
+	if (!g_cfg.player.type[ENEMY].chams[PLAYER_CHAMS_VISIBLE] && !g_cfg.player.type[TEAM].chams[PLAYER_CHAMS_VISIBLE] && !g_cfg.player.type[LOCAL].chams[PLAYER_CHAMS_VISIBLE] && !g_cfg.player.fake_chams_enable && !g_cfg.player.backtrack_chams)
+		return o_bsp(ecx, mins, maxs, list, list_max);
+
+	if (*(uint32_t*)_ReturnAddress() != 0x14244489) //-V206
+		return o_bsp(ecx, mins, maxs, list, list_max);
+
+	auto info = *(RenderableInfo_t**)((uintptr_t)_AddressOfReturnAddress() + 0x14);
+
+	if (!info)
+		return o_bsp(ecx, mins, maxs, list, list_max);
+
+	if (!info->m_pRenderable)
+		return o_bsp(ecx, mins, maxs, list, list_max);
+
+	auto e = info->m_pRenderable->GetIClientUnknown()->GetBaseEntity();
+
+	if (!e->is_player())
+		return o_bsp(ecx, mins, maxs, list, list_max);
+
+	info->m_Flags &= ~0x100;
+	info->m_Flags2 |= 0xC0;
+
+	return o_bsp(ecx, Vector(-32768.0f, -32768.0f, -32768.0f), Vector(32768.0f, 32768.0f, 32768.0f), list, list_max);
+}
+
+/*using ListLeavesInBox_t = int(__thiscall*)(void*, const Vector&, const Vector&, unsigned short*, int);
 
 int __fastcall hooks::hooked_listleavesinbox(void* ecx, void* edx, Vector& mins, Vector& maxs, unsigned short* list, int list_max)
 {
@@ -54,4 +86,4 @@ int __fastcall hooks::hooked_listleavesinbox(void* ecx, void* edx, Vector& mins,
 	info->m_Flags2 |= 0xC0;
 
 	return original_fn(ecx, Vector(-32768.0f, -32768.0f, -32768.0f), Vector(32768.0f, 32768.0f, 32768.0f), list, list_max);
-}
+}*/

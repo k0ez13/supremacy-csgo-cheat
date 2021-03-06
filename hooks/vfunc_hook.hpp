@@ -6,7 +6,7 @@
 #include <stdexcept>
 #include <assert.h>
 
-class vmthook
+/*class vmthook
 {
 public:
 	vmthook();
@@ -162,3 +162,4 @@ private:
 	uintptr_t *shadow_vtable;
 	uintptr_t *original_vtable;
 };
+*/

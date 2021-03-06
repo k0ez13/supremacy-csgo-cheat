@@ -251,7 +251,9 @@ DWORD WINAPI main(PVOID base)
 
 	key_binds::get().initialize_key_binds();
 
-	setup_hooks();
+	//setup_hooks();
+	hooks::setup_hooks();
+
 	Netvars::Netvars();
 
 	return EXIT_SUCCESS;
@@ -676,11 +678,45 @@ void __fastcall hkPerformScreenOverlay(void* _this, void* edx, int x, int y, int
 
 
 
-__forceinline void setup_hooks()
+/*__forceinline void setup_hooks()
 {
-	static auto CViewRender_PerformScreenOverlay = util::FindSignature("client.dll", "55 8b ec 51 a1 ? ? ? ? 53 56 8b d9");
-	ohkPerformScreenOverlay = (decltype(&hkPerformScreenOverlay))DetourFunction(reinterpret_cast<byte*>(CViewRender_PerformScreenOverlay), reinterpret_cast<byte*>(hkPerformScreenOverlay));
-	hooks::original_getforeignfallbackfontname = (DWORD)DetourFunction((PBYTE)((DWORD)(util::FindSignature(crypt_str("vguimatsurface.dll"), g_ctx.signatures.at(9).c_str()))), (PBYTE)hooks::hooked_getforeignfallbackfontname);
+
+	Interfaces interfaces{};
+
+	// get interface pointers.
+	fm_client = interfaces.get< CHLClient* >(HASH("VClient"));
+
+	g_netvars.init();
+
+
+	g_netvars.SetProxy(HASH("DT_BaseViewModel"), HASH("m_nSequence"), shonax_hooks::RecvProxy, shonax_hooks::sequence_hook);
+	//g_netvars.SetProxy(HASH("DT_BaseViewModel"), HASH("m_nModelIndex"), shonax_hooks::Viewmodel, shonax_hooks::viewmodel_hook);
+
+
+
+
+
+
+
+	f_client.init(m_client());
+	f_client.add(5, f_force_cast(&fooks::LevelInitPreEntity));
+	f_client.add(6, f_force_cast(&fooks::LevelInitPostEntity));
+
+
+
+
+
+
+	//hooks::hooked_events.RegisterSelf();
+}*/
+
+
+
+/*__forceinline void setup_hooks()
+{
+	//static auto CViewRender_PerformScreenOverlay = util::FindSignature("client.dll", "55 8b ec 51 a1 ? ? ? ? 53 56 8b d9");
+	//ohkPerformScreenOverlay = (decltype(&hkPerformScreenOverlay))DetourFunction(reinterpret_cast<byte*>(CViewRender_PerformScreenOverlay), reinterpret_cast<byte*>(hkPerformScreenOverlay));
+	/*hooks::original_getforeignfallbackfontname = (DWORD)DetourFunction((PBYTE)((DWORD)(util::FindSignature(crypt_str("vguimatsurface.dll"), g_ctx.signatures.at(9).c_str()))), (PBYTE)hooks::hooked_getforeignfallbackfontname);
 	hooks::original_setupbones = (DWORD)DetourFunction((PBYTE)((DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(10).c_str()))), (PBYTE)hooks::hooked_setupbones);
 	hooks::original_doextrabonesprocessing = (DWORD)DetourFunction((PBYTE)((DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(11).c_str()))), (PBYTE)hooks::hooked_doextrabonesprocessing);
 	hooks::original_standardblendingrules = (DWORD)DetourFunction((PBYTE)((DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(12).c_str()))), (PBYTE)hooks::hooked_standardblendingrules);
@@ -692,7 +728,7 @@ __forceinline void setup_hooks()
 	DetourFunction((PBYTE)((DWORD)(util::FindSignature(crypt_str("engine.dll"), g_ctx.signatures.at(18).c_str()))), (PBYTE)hooks::hooked_checkfilecrcswithserver);
 	hooks::original_processinterpolatedlist = (DWORD)DetourFunction((byte*)((DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(19).c_str()))), (byte*)hooks::processinterpolatedlist);
 
-	hooks::client_hook = new vmthook(reinterpret_cast<DWORD**>(m_client()));
+	/*hooks::client_hook = new vmthook(reinterpret_cast<DWORD**>(m_client()));
 	hooks::client_hook->hook_function(reinterpret_cast<uintptr_t>(hooks::hooked_fsn), 37);
 	hooks::client_hook->hook_function(reinterpret_cast<uintptr_t>(hooks::hooked_writeusercmddeltatobuffer), 24);
 
@@ -753,7 +789,7 @@ __forceinline void setup_hooks()
 	hooks::directx_hook = new vmthook(reinterpret_cast<DWORD**>(m_device()));
 	hooks::directx_hook->hook_function(reinterpret_cast<uintptr_t>(hooks::Hooked_EndScene_Reset), 16);
 	hooks::directx_hook->hook_function(reinterpret_cast<uintptr_t>(hooks::hooked_present), 17);
-	hooks::directx_hook->hook_function(reinterpret_cast<uintptr_t>(hooks::Hooked_EndScene), 42);
+	hooks::directx_hook->hook_function(reinterpret_cast<uintptr_t>(hooks::Hooked_EndScene), 42);*
 
 
 
@@ -761,19 +797,19 @@ __forceinline void setup_hooks()
 
 	MH_Initialize();
 	{
-		const auto create_move_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 24));
-		const auto postscreeneffects_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 44));
-		const auto overrideview_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 18));
-		const auto drawfog_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 17));
-		const auto fsn_target = reinterpret_cast<void*>(get_virtual(m_client(), 37));
+		//const auto create_move_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 24));
+		//const auto postscreeneffects_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 44));
+		//const auto overrideview_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 18));
+		//const auto drawfog_target = reinterpret_cast<void*>(get_virtual(m_clientmode(), 17));
+		//const auto fsn_target = reinterpret_cast<void*>(get_virtual(m_client(), 37));
 		const auto sendmessage_target = reinterpret_cast<void*>(get_virtual(SteamGameCoordinator, 0));
-		const auto retrievemessage_target = reinterpret_cast<void*>(get_virtual(SteamGameCoordinator, 2));
+		//const auto retrievemessage_target = reinterpret_cast<void*>(get_virtual(SteamGameCoordinator, 2));
 		const auto gameventmanag_target = reinterpret_cast<void*>(get_virtual(m_eventmanager(), 9));
 		const auto gamemovement_target = reinterpret_cast<void*>(get_virtual(m_gamemovement(), 1));
 		const auto dispatch_target = reinterpret_cast<void*>(get_virtual(m_client(), 38));
 		{
-			MH_CreateHook(sendmessage_target, &shonax_hooks::GCSendMessageHook, reinterpret_cast<void**>(&shonax_hooks::oGCSendMessage));
-			MH_CreateHook(retrievemessage_target, &shonax_hooks::GCRetrieveMessageHook, reinterpret_cast<void**>(&shonax_hooks::oGCRetrieveMessage));
+			//MH_CreateHook(sendmessage_target, &shonax_hooks::GCSendMessageHook, reinterpret_cast<void**>(&shonax_hooks::oGCSendMessage));
+			//MH_CreateHook(retrievemessage_target, &shonax_hooks::GCRetrieveMessageHook, reinterpret_cast<void**>(&shonax_hooks::oGCRetrieveMessage));
 			MH_CreateHook(gameventmanag_target, &shonax_hooks::FireEventClientSide, reinterpret_cast<void**>(&shonax_hooks::oFireEventClientSidefn));
 			MH_CreateHook(gamemovement_target, &ProcessMovement, reinterpret_cast<void**>(&oProcessMovement));
 			MH_CreateHook(dispatch_target, &hkDispatchUserMessage, reinterpret_cast<void**>(&otDispatchUserMessage));
@@ -789,8 +825,8 @@ __forceinline void setup_hooks()
 	g_netvars.init();
 
 
-	g_netvars.SetProxy(HASH("DT_BaseViewModel"), HASH("m_nSequence"), shonax_hooks::RecvProxy, shonax_hooks::sequence_hook);
-	g_netvars.SetProxy(HASH("DT_BaseViewModel"), HASH("m_nModelIndex"), shonax_hooks::Viewmodel, shonax_hooks::viewmodel_hook);
+	//g_netvars.SetProxy(HASH("DT_BaseViewModel"), HASH("m_nSequence"), shonax_hooks::RecvProxy, shonax_hooks::sequence_hook);
+	//g_netvars.SetProxy(HASH("DT_BaseViewModel"), HASH("m_nModelIndex"), shonax_hooks::Viewmodel, shonax_hooks::viewmodel_hook);
 
 
 
@@ -807,5 +843,6 @@ __forceinline void setup_hooks()
 
 
 
-	hooks::hooked_events.RegisterSelf();
+	//hooks::hooked_events.RegisterSelf();
 }
+*/

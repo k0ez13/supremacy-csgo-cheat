@@ -3,7 +3,31 @@
 
 #include "..\hooks.hpp"
 
-using IsConnected_t = bool(__fastcall*)(void*);
+bool __fastcall hooks::hooked_isconnected::hook(void* ecx, void* edx)
+{
+
+	if (!g_cfg.misc.inventory_access || !m_engine()->IsInGame())
+		return o_isconnected(ecx);
+
+	static auto inventory_access = util::FindSignature(crypt_str("client.dll"), crypt_str("84 C0 75 04 B0 01 5F"));
+
+	if ((DWORD)_ReturnAddress() != inventory_access)
+		return o_isconnected(ecx);
+
+	return false;
+}
+
+/*float __fastcall hooks::hooked_getscreenaspectratio::hook(void* ecx, void* edx, int width, int height)
+{
+
+	if (!g_cfg.misc.aspect_ratio)
+		return o_getscreen(ecx, width, height);
+
+	return g_cfg.misc.aspect_ratio_amount;
+}
+*/
+
+/*using IsConnected_t = bool(__fastcall*)(void*);
 
 bool __fastcall hooks::hooked_isconnected(void* ecx, void* edx)
 {
@@ -31,3 +55,4 @@ float __fastcall hooks::hooked_getscreenaspectratio(void* ecx, void* edx, int wi
 
 	return g_cfg.misc.aspect_ratio_amount;
 }
+*/

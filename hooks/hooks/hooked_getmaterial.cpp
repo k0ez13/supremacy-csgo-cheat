@@ -3,7 +3,19 @@
 
 #include "..\hooks.hpp"
 
-using GetMaterial_t = IMaterial*(__thiscall*)(void*, const char*, const char*, bool, const char*);
+IMaterial* __fastcall hooks::hooked_getmaterial::hook(void* ecx, void* edx, const char* material_name, const char* texture_group_name, bool complain, const char* complain_prefix)
+{
+
+	if (!material_name)
+		return o_getmaterial(ecx, material_name, texture_group_name, complain, complain_prefix);
+
+	if (g_cfg.player.enable && g_cfg.esp.removals[REMOVALS_SCOPE] && !strcmp(material_name, "dev/scope_bluroverlay"))
+		return o_getmaterial(ecx, "dev/clearalpha", nullptr, complain, complain_prefix);
+
+	return o_getmaterial(ecx, material_name, texture_group_name, complain, complain_prefix);
+}
+
+/*using GetMaterial_t = IMaterial*(__thiscall*)(void*, const char*, const char*, bool, const char*);
 
 IMaterial* __fastcall hooks::hooked_getmaterial(void* ecx, void* edx, const char* material_name, const char* texture_group_name, bool complain, const char* complain_prefix)
 {
@@ -16,4 +28,4 @@ IMaterial* __fastcall hooks::hooked_getmaterial(void* ecx, void* edx, const char
 		return original_fn(ecx, "dev/clearalpha", nullptr, complain, complain_prefix);
 
 	return original_fn(ecx, material_name, texture_group_name, complain, complain_prefix);
-}
+}*/
